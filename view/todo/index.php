@@ -159,7 +159,7 @@ while ($todo_item = mysqli_fetch_array($todo_get_result['data'])){
         <td>
             <div class="flex gap-4">
                 <a href="./edit_todo.php?id=<?= $todo_item['id'] ?>" class="btn btn-info">Edit</a>
-                <a href="#" class="btn btn-warning" onclick="return confirm('ingin menghapus tugas ini?');">Hapus</a>
+                <a href="./delete_todo.php?id=<?= $todo_item['id'] ?>" class="btn btn-warning" onclick="return confirm('ingin menghapus tugas ini?');">Hapus</a>
             </div>
         </td>
     </tr>

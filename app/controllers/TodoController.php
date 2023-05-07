@@ -125,9 +125,28 @@ class TodoController
     }
 
     // Metode delete data
-    public function delete()
+    public function delete($id)
     {
+        $result = [
+            "success" => true,
+            "messages" => "Berhasil hapus todo",
+        ];
 
+        try {
+            $delete_todo = $this->todo_model->delete($id);
+
+            if ($delete_todo['success'] != true){
+                $result['success'] = false;
+                $result['messages'] = $delete_todo['messages'];
+            }
+
+            return $result;
+
+        } catch (Exception $e){
+            $result['success'] = false;
+            $result['messages'] = $e;
+            return $result;
+        }
     }
 
 }

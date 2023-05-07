@@ -125,11 +125,14 @@ class Todo
     {
         $result = [
             "success" => true,
-            "messages" => "Berhasil mengambil todo",
+            "messages" => "Berhasil hapus todo",
         ];
 
         try {
+            $query = "DELETE FROM `todo` WHERE id='{$id}'";
+            $execute = mysqli_query($this->db, $query);
 
+            return $result;
         } catch (Exception $e){
             $result['success'] = false;
             $result['messages'] = $e;

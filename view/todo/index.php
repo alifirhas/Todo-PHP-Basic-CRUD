@@ -44,7 +44,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $base_url . "/view/components/navbar.ph
             <!-- Input deadline -->
             <div class="form-control w-full">
                 <label class="label">
-                    <span class="label-text">Dadline?</span>
+                    <span class="label-text">Deadline?</span>
                 </label>
                 <input type="date" name="deadline" class="input input-bordered w-full" required />
             </div>
@@ -52,7 +52,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $base_url . "/view/components/navbar.ph
             <!-- Input gambar -->
             <div class="form-control w-full">
                 <label class="label">
-                    <span class="label-text">Dadline?</span>
+                    <span class="label-text">Gambar?</span>
                 </label>
                 <input type="file" name="foto" class="file-input file-input-bordered file-input-primary w-full" required />
             </div>
@@ -158,7 +158,7 @@ while ($todo_item = mysqli_fetch_array($todo_get_result['data'])){
         <td><?= $todo_item['deadline'] ?></td>
         <td>
             <div class="flex gap-4">
-                <a href="./edit_todo.php" class="btn btn-info">Edit</a>
+                <a href="./edit_todo.php?id=<?= $todo_item['id'] ?>" class="btn btn-info">Edit</a>
                 <a href="#" class="btn btn-warning" onclick="return confirm('ingin menghapus tugas ini?');">Hapus</a>
             </div>
         </td>

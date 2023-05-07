@@ -3436,6 +3436,10 @@ html {
   display: table;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-5 {
   height: 1.25rem;
 }
@@ -3470,6 +3474,14 @@ html {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-40 {
+  width: 10rem;
+}
+
+.w-48 {
+  width: 12rem;
 }
 
 .max-w-xs {

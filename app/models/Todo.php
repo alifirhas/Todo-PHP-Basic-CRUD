@@ -51,6 +51,27 @@ class Todo
         }
     }
 
+    // Metode ambil satu data berdasarkan ID
+    public function getObject($id){
+        $result = [
+            "success" => true,
+            "messages" => "Berhasil mengambil todo",
+        ];
+
+        try {
+            $query = "SELECT * FROM todo WHERE id={$id} LIMIT 1";
+            $execute = mysqli_query($this->db, $query);
+
+            $result['data'] = $execute;
+
+            return $result;
+        } catch (Exception $e){
+            $result['success'] = false;
+            $result['messages'] = $e;
+            return $result;
+        }
+    }
+
     // Metode read data
     public function read()
     {
@@ -74,14 +95,45 @@ class Todo
     }
 
     // Metode update data
-    public function update($id)
+    public function update(Todo $todo)
     {
+        $result = [
+            "success" => true,
+            "messages" => "Berhasil update todo",
+        ];
 
+        try {
+            $query = "UPDATE `todo` SET 
+                `judul_tugas`='{$todo->judul_tugas}',
+                `detail`='{$todo->detail}',
+                `foto_path`='{$todo->foto_path}',
+                `deadline`='{$todo->deadline}',
+                `is_done`='{$todo->is_done}' 
+                WHERE id='{$todo->id}'";
+            $execute = mysqli_query($this->db, $query);
+
+            return $result;
+        } catch (Exception $e){
+            $result['success'] = false;
+            $result['messages'] = $e;
+            return $result;
+        }
     }
 
     // Metode delete data
     public function delete($id)
     {
+        $result = [
+            "success" => true,
+            "messages" => "Berhasil mengambil todo",
+        ];
 
+        try {
+
+        } catch (Exception $e){
+            $result['success'] = false;
+            $result['messages'] = $e;
+            return $result;
+        }
     }
 }

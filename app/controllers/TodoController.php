@@ -17,9 +17,6 @@ class TodoController
         $this->todo_model = new Todo();
     }
 
-    public function getTableName() {
-        echo $this->todo_model->table_name;
-    }
 
     // Metode create data
     public function create(Todo $todo)
@@ -42,8 +39,36 @@ class TodoController
         } catch (Exception $e){
             $result['success'] = false;
             $result['messages'] = $e;
+            return $result;
         }
 
+    }
+
+    // Metode ambil satu data berdasarkan ID
+    public function getObject($id)
+    {
+        $result = [
+            "success" => true,
+            "messages" => "Berhasil mengambil todo",
+        ];
+        
+        try {
+            $get_todo = $this->todo_model->getObject($id);
+
+            if ($get_todo['success'] != true){
+                $result['success'] = false;
+                $result['messages'] = $get_todo['messages'];
+            }
+
+            $result['data'] = $get_todo['data'];
+
+            return $result;
+
+        } catch (Exception $e){
+            $result['success'] = false;
+            $result['messages'] = $e;
+            return $result;
+        }
     }
 
     // Metode read data
@@ -51,7 +76,7 @@ class TodoController
     {
         $result = [
             "success" => true,
-            "messages" => "Berhasil menambahkan todo",
+            "messages" => "Berhasil mengambil todo",
         ];
         
         try {
@@ -69,12 +94,33 @@ class TodoController
         } catch (Exception $e){
             $result['success'] = false;
             $result['messages'] = $e;
+            return $result;
         }
     }
 
     // Metode update data
-    public function update()
+    public function update(Todo $todo)
     {
+        $result = [
+            "success" => true,
+            "messages" => "Berhasil update todo",
+        ];
+
+        try {
+            $update_todo = $this->todo_model->update($todo);
+
+            if ($update_todo['success'] != true){
+                $result['success'] = false;
+                $result['messages'] = $update_todo['messages'];
+            }
+
+            return $result;
+
+        } catch (Exception $e){
+            $result['success'] = false;
+            $result['messages'] = $e;
+            return $result;
+        }
 
     }
 

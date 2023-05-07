@@ -16,7 +16,7 @@
         
         <!-- Bagian tengah -->
         <div class="navbar-center">
-            <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+            <a class="btn btn-ghost normal-case text-xl" href="#" onclick="location.reload();">daisyUI</a>
         </div>
 
         <!-- Bagian kanan -->

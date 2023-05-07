@@ -13,7 +13,7 @@ class Connection
 
     // Constructor untuk membuat koneksi ketika class Connection dipanggil
     public function __construct(){
-        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->database);
+        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->database_name);
         if ($this->conn->connect_error){
             die("Koneksi gagal: " . $this->conn->connect_error);
         }
